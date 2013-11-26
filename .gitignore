@@ -1,0 +1,9 @@
+build/
+bin/
+*~
+\#*#
+*.swp
+*.swo
+.\#*
+*.pdf
+*.tex
