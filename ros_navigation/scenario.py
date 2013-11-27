@@ -32,6 +32,10 @@ motion = MotionXYW()
 james.append(motion)
 motion.add_interface('ros', topic='/cmd_vel')
 
+# Kinect
+kinect=Kinect()
+kinect.add_stream('ros')
+james.append(kinect)
 
 # Set the environment
 env = Environment('tum_kitchen/tum_kitchen')
