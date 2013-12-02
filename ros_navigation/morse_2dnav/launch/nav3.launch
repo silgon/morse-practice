@@ -2,7 +2,7 @@
 <launch>
     <param name="robot_description" command="cat $(find morse_2dnav)/pr2.urdf"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-	<node name="map_server" pkg="map_server" type="map_server" args="$(find morse_2dnav)/map.yaml"/>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find morse_2dnav)/map/map.yaml"/>
 	<node name="amcl" pkg="amcl" type="amcl">
 		<param name="scan" value="base_scan" />
 	</node>
