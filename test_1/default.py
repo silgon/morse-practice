@@ -82,8 +82,10 @@ pr2.append(motion)
 motion.add_interface('ros', topic='/cmd_vel')
 
 # Kinect
-kinect=Kinect()
+# kinect=Kinect()
+kinect=DepthCamera()
 kinect.add_stream('ros')
+kinect.translate(z=1.5)
 pr2.append(kinect)
 
 # set 'fastmode' to True to switch to wireframe mode
