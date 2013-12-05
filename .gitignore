@@ -8,3 +8,5 @@ bin/
 *.pdf
 *.tex
 *.pyc
+*.blend1
+*.blend2
