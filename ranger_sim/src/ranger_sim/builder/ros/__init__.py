@@ -1,1 +1,2 @@
-from .Mypose import Mypose
+from .MyPose import MyPose
+from .MyMotion import MyMotion
