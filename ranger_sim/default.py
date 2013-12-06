@@ -7,21 +7,27 @@ Feel free to edit this template as you like!
 
 from morse.builder import *
 from ranger_sim.builder.robots import Ranger
-# from ranger_sim.builder.ros.Mypose import Mypose
-# print (Mypose._type_name) 
+# from ranger_sim.builder.ros.MyPose import MyPose
+# print (MyPose._type_name) 
 
+human=Human()
+human.translate(3,1,0)
+human.add_interface('ros')
+human.disable_keyboard_control()
+human.profile()
 
 robot = Ranger()
 robot.translate(1.0, 0.0, 0.0)
 
 motion = MotionVW()
 robot.append(motion)
+motion.add_stream('ros','ranger_sim.builder.ros.MyMotion')
 
 keyboard = Keyboard()
 robot.append(keyboard)
 pose = Pose()
 robot.append(pose)
-pose.add_stream('socket', 'ranger_sim.builder.ros.Mypose')
+pose.add_stream('ros', 'ranger_sim.builder.ros.MyPose')
 
 robot.add_default_interface('socket')
 
