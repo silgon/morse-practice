@@ -33,8 +33,8 @@ james.append(motion)
 motion.add_interface('ros', topic='/cmd_vel')
 
 # Kinect
-kinect=DepthCamera()
-# kinect=Kinect()  # it seems that kinect is not working. Reference: https://github.com/morse-simulator/morse/issues/397
+#kinect=DepthCamera()
+kinect=Kinect()  # it seems that kinect is not working. Reference: https://github.com/morse-simulator/morse/issues/397
 kinect.translate(z=1.5)
 kinect.add_stream('ros')
 james.append(kinect)

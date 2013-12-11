@@ -5,50 +5,60 @@
 
 from morse.builder import *
 from math import pi
+from test_1.builder.robots import Theman
+
 ################
 # human 1
 ################
-human1 = Human()
-human1.translate(x = 0.0, y = 0.0, z = 0.0)
-human1.rotate(x = 0.0, y = 0.0, z = pi)
-human1.add_interface('ros')
-human1.disable_keyboard_control()
-motion1 = MotionVW()
-human1.append(motion1)
-motion1.add_stream('ros')
-pose1 = Pose()
-pose1.add_stream('ros')
-human1.append(pose1)
+theman = Theman()
+theman.rotate(x = 0.0, y = 0.0, z = pi)
+theman.add_interface('ros')
 
-################
-# human 2
-################
-human2 = Human()
-human2.translate(x = -1.0, y = -1.0, z = 0.0)
-human2.rotate(x = 0.0, y = 0.0, z = pi/2)
-human2.disable_keyboard_control()
-human2.add_interface('ros')
-motion2 = MotionVW()
-human2.append(motion2)
-motion2.add_stream('ros')
-pose2 = Pose()
-pose2.add_stream('ros')
-human2.append(pose2)
 
-################
-# human 3
-################
-human3 = Human()
-human3.translate(x = -2.0, y = 0.0, z = 0.0)
-human3.rotate(x = 0.0, y = 0.0, z = 0)
-human3.add_interface('ros')
-human3.disable_keyboard_control()
-motion3 = MotionVW()
-human3.append(motion3)
-motion3.add_stream('ros')
-pose3 = Pose()
-pose3.add_stream('ros')
-human3.append(pose3)
+# ################
+# # human 1
+# ################
+# human1 = Human()
+# human1.translate(x = 0.0, y = 0.0, z = 0.0)
+# human1.rotate(x = 0.0, y = 0.0, z = pi)
+# human1.add_interface('ros')
+# human1.disable_keyboard_control()
+# motion1 = MotionVW()
+# human1.append(motion1)
+# motion1.add_stream('ros')
+# pose1 = Pose()
+# pose1.add_stream('ros')
+# human1.append(pose1)
+
+# ################
+# # human 2
+# ################
+# human2 = Human()
+# human2.translate(x = -1.0, y = -1.0, z = 0.0)
+# human2.rotate(x = 0.0, y = 0.0, z = pi/2)
+# human2.disable_keyboard_control()
+# human2.add_interface('ros')
+# motion2 = MotionVW()
+# human2.append(motion2)
+# motion2.add_stream('ros')
+# pose2 = Pose()
+# pose2.add_stream('ros')
+# human2.append(pose2)
+
+# ################
+# # human 3
+# ################
+# human3 = Human()
+# human3.translate(x = -2.0, y = 0.0, z = 0.0)
+# human3.rotate(x = 0.0, y = 0.0, z = 0)
+# human3.add_interface('ros')
+# human3.disable_keyboard_control()
+# motion3 = MotionVW()
+# human3.append(motion3)
+# motion3.add_stream('ros')
+# pose3 = Pose()
+# pose3.add_stream('ros')
+# human3.append(pose3)
 
 ############################
 # A PR2 robot to the scene
