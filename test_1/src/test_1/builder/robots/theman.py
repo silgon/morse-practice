@@ -14,15 +14,20 @@ class Theman(Robot):
         self.suffix = self.name[-4:] if self.name[-4] == "." else ""
         try:
             self.armature = Armature("Armature" + self.suffix, "human_posture")
+            # self.armature = Armature("Armature")
             self.append(self.armature)
+            self.armature_pose = ArmaturePose() # armature_pose = joint states
+            self.armature_pose.name="pose"
+            self.armature.append(self.armature_pose)
+            self.joint_state = CompoundSensor([self.armature_pose])
+            self.append(self.joint_state)
+
         except KeyError:
             logger.error("Could not find the human armature! (I was looking " +\
                          "for an object called 'Armature' in the human" +\
                          " children). I won't be able to export the human pose" +\
                          " to any middleware.")
 
-        self.joint_states = ArmaturePose()
-        self.armature.append(self.joint_states)
 
         ###################################
         # Actuators
@@ -32,8 +37,9 @@ class Theman(Robot):
         # (v,w) motion controller
         # Check here the other available actuators:
         # http://www.openrobots.org/morse/doc/stable/components_library.html#actuators
-        self.motion = MotionVW()
-        self.append(self.motion)
+
+        # self.motion = MotionVW()
+        # self.append(self.motion)
 
         # Optionally allow to move the robot with the keyboard
         if debug:
@@ -54,11 +60,18 @@ class Theman(Robot):
 
         elif interface == "ros":
 
-            self.joint_states.add_stream("ros")
+            # self.joint_states.add_stream("ros")
 
-            self.armature.add_service("ros")
-            self.armature.add_overlay("ros",
-              "morse.middleware.ros.overlays.armatures.ArmatureController")
+            # self.armature.add_service("ros")
+            # self.armature.add_overlay("ros",
+            #   "morse.middleware.ros.overlays.armatures.ArmatureController")
+            self.armature_pose.add_stream("ros", 
+                 "morse.middleware.ros.jointtrajectorycontrollers.JointTrajectoryControllerStatePublisher",
+                 topic="/theman/state")
+            self.armature_pose.add_overlay("ros",
+              "morse.middleware.ros.overlays.armatures.ArmatureController",
+              namespace = "/theman")
+
 
         elif interface == "pocolibs":
             self.armature.properties(classpath="morse.sensors.human_posture.HumanPosture")
