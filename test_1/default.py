@@ -7,22 +7,22 @@ from morse.builder import *
 from math import pi
 from test_1.builder.robots import Theman
 
-# ################
-# # human 1
-# ################
-# theman = Theman()
-# theman.rotate(x = 0.0, y = 0.0, z = pi)
-# theman.add_interface('ros')
-
-
 ################
 # human 1
 ################
-human1 = Human()
-human1.translate(x = 0.0, y = 0.0, z = 0.0)
-human1.rotate(x = 0.0, y = 0.0, z = pi)
-human1.add_interface('ros')
-human1.disable_keyboard_control()
+theman = Theman()
+theman.rotate(x = 0.0, y = 0.0, z = pi)
+theman.add_interface('ros')
+
+
+# ################
+# # human 1
+# ################
+# human1 = Human()
+# human1.translate(x = 0.0, y = 0.0, z = 0.0)
+# human1.rotate(x = 0.0, y = 0.0, z = pi)
+# human1.add_interface('ros')
+# human1.disable_keyboard_control()
 # motion1 = MotionVW()
 # human1.append(motion1)
 # motion1.add_stream('ros')
