@@ -1,4 +1,5 @@
 #! /usr/bin/env morseexec
+# silgon <silgon3200@gmail.com>
 
 """ Basic MORSE simulation scene for <test_2> environment
 
@@ -7,12 +8,24 @@
 from math import pi
 from morse.builder import *
 from test_2.builder.robots import Theman
-
+from test_2.others.f_formations import *
 
 poses=[] # x,y,theta
-poses.append([0,0,pi]) # human 1
-poses.append([-1,-1,pi/2]) # human 2
-poses.append([-2,0,3*pi/2]) # human 3
+
+visAVis(poses,(4,4,pi/4),.6,()) 
+visAVis(poses,(5,1,0),.6,()) 
+LFormation(poses,(-3,2,pi/4),.6,()) 
+circular4Formation(poses,(-3,-3,0),.6,()) 
+circular4Formation(poses,(0,0,pi/4),.6,()) 
+sideBySide(poses,(4,-3,0),.6,()) 
+sideBySide(poses,(-7,-5,pi),.6,()) 
+
+# poses.append([0,0,pi]) 
+# poses.append([-1,-1,pi/2]) 
+# poses.append([-2,0,3*pi/2])
+
+
+
 human=[]
 motion=[]
 pose=[]
