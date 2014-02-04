@@ -43,7 +43,7 @@ for i in range(len(poses)):
 
 
 # set 'fastmode' to True to switch to wireframe mode
-env = Environment('../data/environment/envi.blend', fastmode = False)
+env = Environment('../../environments/default.blend', fastmode = False)
 env.set_camera_location([10.0, -10.0, 10.0])
 env.set_camera_rotation([1.05, 0, 0.78])
 

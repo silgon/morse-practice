@@ -103,7 +103,7 @@ pr2.append(kinect)
 
 # set 'fastmode' to True to switch to wireframe mode
 # env = Environment('sandbox', fastmode = False)
-env = Environment('../data/environment/envi.blend', fastmode = False)
+env = Environment('../../environments/default.blend', fastmode = False)
 env.place_camera([4, 5, 2])
 env.aim_camera([1.25, 0, 2.2])
 
