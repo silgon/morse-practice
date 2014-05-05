@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="human_maps" type="f-formation.py" name="fFormation" />
+    <node pkg="morse_plugins" type="start_morse.sh" 
+          args="test_2" 
+          name="morse" output="screen" required="true"/>
+</launch>
