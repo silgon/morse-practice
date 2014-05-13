@@ -38,7 +38,7 @@ for i in range(len(poses)):
     motion[i].add_interface('ros',topic="human"+str(i)+"/motion")
     human[i].append(motion[i])
     pose.append(Pose())
-    pose[i].add_stream('ros',topic="human"+str(i)+"/pose", frame_id='human_'+str(i))
+    pose[i].add_stream('ros',topic="human"+str(i)+"/pose", frame_id=str(i+1000))
     human[i].append(pose[i])
 
 
