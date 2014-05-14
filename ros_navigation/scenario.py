@@ -31,6 +31,7 @@ scan.add_interface('ros', topic='/base_scan')
 motion = MotionXYW()
 james.append(motion)
 motion.add_interface('ros', topic='/cmd_vel')
+motion.properties(ControlType = "Position")
 
 # Kinect
 kinect=DepthCamera()

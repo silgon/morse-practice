@@ -41,6 +41,30 @@ for i in range(len(poses)):
     pose[i].add_stream('ros',topic="human"+str(i)+"/pose", frame_id=str(i+1000))
     human[i].append(pose[i])
 
+# A PR2 robot to the scene
+robot = BasePR2()
+robot.add_interface('ros')
+robot.translate(x=2.5, y=3.2, z=0.0)
+# An odometry sensor to get odometry information
+odometry = Odometry()
+robot.append(odometry)
+odometry.add_interface('ros', topic="/odom")
+# Laser Scan
+scan = Hokuyo()
+scan.translate(x=0.275, z=0.252)
+robot.append(scan)
+scan.properties(Visible_arc = False)
+scan.properties(laser_range = 30.0)
+scan.properties(resolution = 1.0)
+scan.properties(scan_window = 180.0)
+scan.create_laser_arc()
+scan.add_interface('ros', topic='/base_scan')
+# Motion Controller
+motion = MotionXYW()
+robot.append(motion)
+motion.add_interface('ros', topic='/cmd_vel')
+motion.properties(ControlType = "Position")
+
 
 # set 'fastmode' to True to switch to wireframe mode
 env = Environment('../../environments/default.blend', fastmode = False)
