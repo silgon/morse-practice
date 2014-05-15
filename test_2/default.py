@@ -45,6 +45,7 @@ for i in range(len(poses)):
 robot = BasePR2()
 robot.add_interface('ros')
 robot.translate(x=2.5, y=3.2, z=0.0)
+robot.rotate(x=0.0, y=0.0, z=3.14)
 # An odometry sensor to get odometry information
 odometry = Odometry()
 robot.append(odometry)
@@ -68,6 +69,8 @@ motion.properties(ControlType = "Position")
 
 # set 'fastmode' to True to switch to wireframe mode
 env = Environment('../../environments/default.blend', fastmode = False)
-env.set_camera_location([10.0, -10.0, 10.0])
-env.set_camera_rotation([1.05, 0, 0.78])
+# env.set_camera_location([10.0, -10.0, 10.0])
+# env.set_camera_rotation([1.05, 0, 0.78])
+env.place_camera([0, 0, 30])
+env.aim_camera([0, 0, 0])
 
